@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skin on | 나만의 피부관리 가이드</title>
+<style>
+:root{--ink:#29233b;--muted:#777187;--purple:#7763a8;--deep:#55427f;--pink:#f4dce8;--lav:#eee9f7;--cream:#fffaf8;--line:#eee8f0;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:var(--ink);font-family:"Pretendard","Noto Sans KR",Arial,sans-serif;line-height:1.65}
+header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{max-width:1160px;margin:auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-size:25px;font-weight:900;letter-spacing:-1.5px;color:var(--deep);text-decoration:none}.logo span{color:#d78eae}
+nav{display:flex;gap:7px;flex-wrap:wrap}nav a{padding:9px 13px;border-radius:30px;text-decoration:none;color:#625b70;font-size:14px;font-weight:700}nav a:hover,nav a.active{background:var(--lav);color:var(--deep)}
+.hero{background:linear-gradient(115deg,#f4edf9 0%,#fff2f5 60%,#fffaf7 100%);overflow:hidden}
+.hero-inner{max-width:1160px;margin:auto;min-height:470px;padding:72px 24px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:30px}
+.eyebrow{color:#a16e9a;font-weight:800;font-size:13px;letter-spacing:2px}
+h1{font-size:clamp(38px,5vw,62px);line-height:1.13;letter-spacing:-2.5px;margin:16px 0}
+h1 em{font-style:normal;color:var(--purple)}.lead{color:#70697d;font-size:17px;max-width:520px}
+.btn{display:inline-block;margin-top:22px;padding:13px 22px;border-radius:30px;background:var(--deep);color:white;text-decoration:none;font-weight:800;border:0;cursor:pointer}.btn:hover{background:#40305f}
+.hero-art{height:330px;position:relative;display:grid;place-items:center}
+.orb{width:270px;height:270px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff 0 10%,#f9dce9 38%,#c9b9e4 100%);box-shadow:0 25px 60px #8d78a433;position:relative}
+.orb:before{content:"";position:absolute;width:145px;height:190px;background:linear-gradient(145deg,#fff9 0%,#e5c9e5 100%);border-radius:80% 20% 65% 35%;transform:rotate(35deg);top:38px;left:65px;box-shadow:inset -12px -10px 25px #a58abb33}
+.orb:after{content:"SKIN\\A CARE";white-space:pre;position:absolute;inset:0;display:grid;place-items:center;text-align:center;font-size:23px;font-weight:900;letter-spacing:3px;color:#705b91}
+.spark{position:absolute;color:#c58db0;font-size:30px}.s1{top:30px;left:16%}.s2{right:12%;top:70px}.s3{bottom:30px;left:22%}
+section{scroll-margin-top:90px;padding:76px 24px}.wrap{max-width:1100px;margin:auto}.section-head{text-align:center;margin-bottom:38px}.kicker{font-size:12px;color:#b17c9e;font-weight:900;letter-spacing:2px}.section-head h2{font-size:34px;letter-spacing:-1px;margin:7px 0}.section-head p{color:var(--muted);margin:0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:white;border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 10px 30px #39285b08}
+.card .icon{width:54px;height:54px;border-radius:17px;background:var(--lav);display:grid;place-items:center;font-size:27px;margin-bottom:16px}
+.card h3{margin:0 0 7px;font-size:19px}.card p{color:var(--muted);font-size:14px;margin:0}
+.soft{background:#fcf9fd}
+.types{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.type{border:1px solid var(--line);border-radius:20px;padding:18px 14px 20px;text-align:left;background:#fff;box-shadow:0 10px 28px #39285b08;overflow:hidden}
+.type-visual{height:132px;border-radius:15px;margin-bottom:15px;display:grid;place-items:center;position:relative;overflow:hidden;background:linear-gradient(145deg,#fff7f8,#f1eafa)}
+.skin-face{width:92px;height:105px;border-radius:48% 48% 44% 44%;position:relative;background:linear-gradient(145deg,#f8d6c5,#eeb99f);box-shadow:inset -8px -5px 14px #b96f6230,0 8px 18px #9a6b6520}
+.skin-face:before{content:"";position:absolute;top:38px;left:19px;width:10px;height:5px;border-radius:50%;background:#72534e;box-shadow:43px 0 #72534e}
+.skin-face:after{content:"";position:absolute;left:40px;top:65px;width:12px;height:6px;border-bottom:2px solid #b96f72;border-radius:50%}
+.skin-mark{position:absolute;inset:0;pointer-events:none}
+.dry .skin-face{background:linear-gradient(145deg,#f7d4bf,#e8b49b)}.dry .skin-mark:before,.dry .skin-mark:after{content:"〰";position:absolute;color:#fff6e9;font-size:25px;font-weight:900;transform:rotate(-25deg)}.dry .skin-mark:before{top:42px;left:22px}.dry .skin-mark:after{top:72px;right:18px}
+.oily .skin-face{background:linear-gradient(145deg,#f9d8c1,#e9ad91);box-shadow:inset 0 0 20px #fff8,0 8px 18px #9a6b6520}.oily .skin-mark:before{content:"✦";position:absolute;top:26px;left:49%;font-size:25px;color:#fff7d9;text-shadow:0 0 10px #e4b65e}.oily .skin-mark:after{content:"•  •  •";position:absolute;top:83px;left:30%;font-size:13px;letter-spacing:4px;color:#bd806f}
+.combo .skin-face{background:linear-gradient(90deg,#f6d1bd 0 50%,#eab69d 50%)}.combo .skin-mark:before{content:"T";position:absolute;top:31px;left:46%;font-size:28px;font-weight:900;color:#fff8e9;text-shadow:0 1px 4px #bd8d76}.combo .skin-mark:after{content:"";position:absolute;top:65px;left:16px;width:60px;height:23px;border-bottom:2px dashed #fff8e9;border-radius:50%}
+.normal .skin-face{background:linear-gradient(145deg,#f8d9c5,#efc1a8);box-shadow:inset 0 0 16px #fff8,0 8px 18px #9a6b6520}.normal .skin-mark:before{content:"✧";position:absolute;top:23px;left:48%;font-size:25px;color:#fff;text-shadow:0 0 9px #d9a7a9}.normal .skin-mark:after{content:"";position:absolute;top:57px;left:19px;width:54px;height:20px;border-top:1px solid #fff9;border-radius:50%}
+.sensitive .skin-face{background:linear-gradient(145deg,#f8d1c5,#e9aa9e)}.sensitive .skin-mark:before,.sensitive .skin-mark:after{content:"";position:absolute;top:53px;width:24px;height:19px;border-radius:50%;background:#e98b91;filter:blur(5px)}.sensitive .skin-mark:before{left:13px}.sensitive .skin-mark:after{right:13px}
+.type h3{font-size:17px;margin:0 0 7px}.type p{font-size:12px;color:var(--muted);margin:0;line-height:1.6}.type .tag{display:inline-block;margin-top:10px;padding:4px 9px;border-radius:20px;background:#f5eff9;color:#78628e;font-size:11px;font-weight:800}
+.quiz{max-width:760px;margin:34px auto 0;background:white;border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:0 12px 35px #39285b0b}
+.quiz h3{margin-top:0}.question{padding:15px 0;border-bottom:1px solid var(--line)}.question strong{display:block;margin-bottom:9px}
+.options{display:flex;gap:9px;flex-wrap:wrap}.options label{cursor:pointer;border:1px solid #e8e1ed;padding:8px 13px;border-radius:30px;font-size:13px}.options input{accent-color:var(--purple)}
+#quizResult{display:none;margin-top:18px;padding:17px;border-radius:15px;background:var(--lav);color:var(--deep);font-weight:700}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.step{padding:22px 18px;border-radius:18px;background:linear-gradient(145deg,#fff,#f8f3fb);border:1px solid var(--line)}.num{font-size:12px;color:#b27da0;font-weight:900}.step h3{margin:7px 0}.step p{font-size:13px;color:var(--muted);margin:0}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.info-panel{border-radius:22px;padding:28px;background:#fff;border:1px solid var(--line)}.info-panel.purple{background:var(--lav)}.info-panel h3{margin-top:0}.info-panel li{margin:8px 0;color:#625b70}
+.career{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.career .card{background:var(--cream)}
+.notice{font-size:12px;color:#8a8292;margin-top:20px}
+footer{background:#302942;color:#eee7f5;padding:34px 24px;text-align:center}footer strong{font-size:22px}footer p{font-size:12px;color:#c5bbd2;margin:6px}
+@media(max-width:760px){.nav{align-items:flex-start;flex-direction:column;padding:12px 18px}nav{gap:2px}nav a{font-size:12px;padding:7px 9px}.hero-inner{grid-template-columns:1fr;padding:55px 22px 35px}.hero-art{height:240px}.orb{width:205px;height:205px}.orb:before{width:110px;height:145px;left:49px;top:30px}.orb:after{font-size:18px}.cards,.career{grid-template-columns:1fr}.types{grid-template-columns:repeat(2,1fr)}.type-visual{height:118px}.steps{grid-template-columns:repeat(2,1fr)}.info-grid{grid-template-columns:1fr}section{padding:58px 18px}.section-head h2{font-size:28px}}
+</style>
+</head>
+<body>
+<header><div class="nav">
+<a class="logo" href="#home">skin<span>on</span>.</a>
+<nav aria-label="주요 메뉴">
+<a href="#home">홈</a><a href="#types">피부 유형</a><a href="#care">관리 방법</a><a href="#major">피부전공 정보</a><a href="#career">진로·관리 팁</a>
+</nav></div></header>
+<main>
+<section class="hero" id="home"><div class="hero-inner">
+<div><div class="eyebrow">YOUR SKIN, YOUR ROUTINE</div>
+<h1>나에게 맞는 피부관리,<br><em>Skin on</em>에서 시작해요.</h1>
+<p class="lead">내 피부 유형을 이해하고, 올바른 관리 방법을 찾아보세요. 피부관리 정보부터 뷰티 전공과 진로 이야기까지 한곳에 담았습니다.</p>
+<a class="btn" href="#types">내 피부 알아보기 →</a></div>
+<div class="hero-art" aria-label="Skin on 피부관리 서비스 그래픽"><span class="spark s1">✦</span><span class="spark s2">✧</span><span class="spark s3">✦</span><div class="orb"></div></div>
+</div></section>
+
+<section><div class="wrap"><div class="section-head"><div class="kicker">ABOUT SKIN ON</div><h2>피부를 알면 관리가 쉬워져요</h2><p>피부 유형에 맞는 정보를 쉽고 편하게 확인할 수 있는 피부관리 가이드입니다.</p></div>
+<div class="cards">
+<div class="card"><div class="icon">🪞</div><h3>내 피부 이해하기</h3><p>피부 유형별 특징을 살펴보고 나에게 가까운 유형을 알아봅니다.</p></div>
+<div class="card"><div class="icon">🫧</div><h3>올바른 관리 습관</h3><p>세안부터 보습, 자외선 차단까지 기초 관리 순서를 확인합니다.</p></div>
+<div class="card"><div class="icon">🎓</div><h3>전공과 진로 탐색</h3><p>뷰티·피부 전공에서 배우는 내용과 관련 진로 정보를 소개합니다.</p></div>
+</div></div></section>
+
+<section class="soft" id="types"><div class="wrap"><div class="section-head"><div class="kicker">01 · SKIN TYPE</div><h2>피부 유형 알아보기</h2><p>피부 유형은 환경과 컨디션에 따라 달라질 수 있어요.</p></div>
+<div class="types">
+<div class="type"><div class="type-visual dry" role="img" aria-label="건조하고 각질이 일어난 피부를 표현한 일러스트"><div class="skin-face"></div><div class="skin-mark"></div></div><h3>건성 피부</h3><p>수분과 유분이 부족해 세안 후 당김이 느껴지고 각질이나 거친 결이 나타나기 쉬워요.</p><span class="tag">당김 · 각질 · 건조함</span></div>
+<div class="type"><div class="type-visual oily" role="img" aria-label="유분과 피지로 번들거리는 피부를 표현한 일러스트"><div class="skin-face"></div><div class="skin-mark"></div></div><h3>지성 피부</h3><p>피지 분비가 많아 얼굴 전체에 번들거림이 나타나고 모공이나 트러블이 도드라질 수 있어요.</p><span class="tag">유분 · 번들거림 · 모공</span></div>
+<div class="type"><div class="type-visual combo" role="img" aria-label="T존은 유분이 있고 볼은 건조한 피부를 표현한 일러스트"><div class="skin-face"></div><div class="skin-mark"></div></div><h3>복합성 피부</h3><p>이마와 코(T존)는 번들거리지만 볼(U존)은 건조한 등 부위별 차이가 있어요.</p><span class="tag">T존 유분 · 볼 건조</span></div>
+<div class="type"><div class="type-visual normal" role="img" aria-label="피부 결이 매끄럽고 균형 잡힌 피부를 표현한 일러스트"><div class="skin-face"></div><div class="skin-mark"></div></div><h3>중성 피부</h3><p>유분과 수분의 균형이 비교적 잘 유지되어 당김이나 번들거림이 심하지 않아요.</p><span class="tag">균형 · 편안함 · 매끄러움</span></div>
+<div class="type"><div class="type-visual sensitive" role="img" aria-label="자극으로 볼 부위가 붉어진 피부를 표현한 일러스트"><div class="skin-face"></div><div class="skin-mark"></div></div><h3>민감성 피부</h3><p>외부 자극에 쉽게 붉어지거나 따가움, 가려움이 생길 수 있어요.</p><span class="tag">붉어짐 · 따가움 · 자극</span></div>
+</div>
+<p class="notice">※ 피부 유형 일러스트는 특징을 쉽게 구분하기 위한 설명용 그림입니다. 민감성은 독립된 유분 유형이라기보다 다른 피부 유형과 함께 나타날 수 있어요.</p>
+<div class="quiz"><h3>간단 피부 유형 체크</h3><p style="color:#777187;font-size:13px">평소 세안 후 피부 상태를 떠올리며 선택해 보세요.</p>
+<div class="question"><strong>1. 세안 후 아무것도 바르지 않았을 때 피부는?</strong><div class="options"><label><input type="radio" name="q1" value="dry"> 전체적으로 당긴다</label><label><input type="radio" name="q1" value="oily"> 금방 번들거린다</label><label><input type="radio" name="q1" value="combo"> T존만 번들거린다</label><label><input type="radio" name="q1" value="normal"> 큰 불편함이 없다</label></div></div>
+<div class="question"><strong>2. 평소 피부에서 가장 자주 느끼는 점은?</strong><div class="options"><label><input type="radio" name="q2" value="dry"> 거칠고 건조하다</label><label><input type="radio" name="q2" value="oily"> 피지와 유분이 많다</label><label><input type="radio" name="q2" value="combo"> 부위마다 다르다</label><label><input type="radio" name="q2" value="normal"> 대체로 편안하다</label></div></div>
+<div class="question"><strong>3. 화장 후 시간이 지나면?</strong><div class="options"><label><input type="radio" name="q3" value="dry"> 들뜨거나 각질이 보인다</label><label><input type="radio" name="q3" value="oily"> 쉽게 무너지고 번들거린다</label><label><input type="radio" name="q3" value="combo"> T존 위주로 무너진다</label><label><input type="radio" name="q3" value="normal"> 비교적 오래 유지된다</label></div></div>
+<button class="btn" type="button" onclick="checkSkin()">결과 확인하기</button><div id="quizResult" role="status"></div>
+<p class="notice">※ 이 체크는 피부 유형을 알아보기 위한 간단한 참고용이며 의학적 진단이 아닙니다. 민감함은 건성·지성 등 다른 유형과 함께 나타날 수 있습니다.</p>
+</div></div></section>
+
+<section id="care"><div class="wrap"><div class="section-head"><div class="kicker">02 · DAILY ROUTINE</div><h2>기초 피부관리 방법</h2><p>매일 꾸준히 실천하는 기본 관리 순서</p></div>
+<div class="steps">
+<div class="step"><div class="num">STEP 01</div><h3>부드러운 세안</h3><p>피부에 자극이 적은 세안제로 노폐물과 잔여물을 부드럽게 씻어냅니다.</p></div>
+<div class="step"><div class="num">STEP 02</div><h3>수분 공급</h3><p>피부 상태에 맞는 토너나 보습 제품으로 수분을 보충합니다.</p></div>
+<div class="step"><div class="num">STEP 03</div><h3>보습 관리</h3><p>로션이나 크림을 사용해 피부가 건조해지지 않도록 관리합니다.</p></div>
+<div class="step"><div class="num">STEP 04</div><h3>자외선 차단</h3><p>낮에는 자외선 차단제를 사용하고 필요에 따라 덧발라 줍니다.</p></div>
+</div>
+<div class="info-grid" style="margin-top:22px">
+<div class="info-panel purple"><h3>건성 피부 관리 팁</h3><ul><li>뜨거운 물과 과도한 세안을 피하기</li><li>세안 후 피부가 마르기 전에 보습하기</li><li>당김이 심하면 보습 제품 사용량 조절하기</li></ul></div>
+<div class="info-panel"><h3>지성·복합성 피부 관리 팁</h3><ul><li>유분을 과하게 제거하지 않기</li><li>가벼운 제형의 보습 제품 활용하기</li><li>번들거리는 부위와 건조한 부위를 나누어 관리하기</li></ul></div>
+</div><p class="notice">피부 상태에 따라 제품 반응은 다를 수 있습니다. 새 제품은 소량으로 먼저 확인하고, 자극이나 불편함이 지속되면 전문가와 상담하세요.</p>
+</div></section>
+
+<section class="soft" id="major"><div class="wrap"><div class="section-head"><div class="kicker">03 · BEAUTY MAJOR</div><h2>피부전공 정보</h2><p>피부와 뷰티를 전문적으로 배우는 과정</p></div>
+<div class="info-grid">
+<div class="info-panel"><h3>전공에서 배우는 내용</h3><ul><li>피부 구조와 피부 유형의 이해</li><li>기초 피부관리 이론 및 실습</li><li>클렌징·보습 등 피부관리 방법</li><li>위생 관리와 고객 상담 기초</li></ul></div>
+<div class="info-panel purple"><h3>관련 자격 및 학습 분야</h3><ul><li>미용사(피부) 국가기술자격 관련 학습</li><li>피부미용 이론과 실기 연습</li><li>피부 상담 및 관리 프로그램 이해</li><li>관련 분야의 실습과 현장 경험 쌓기</li></ul></div>
+</div><p class="notice">※ 자격 취득 요건과 시험 정보는 관련 공식 기관의 최신 공고를 확인하세요.</p>
+</div></section>
+
+<section id="career"><div class="wrap"><div class="section-head"><div class="kicker">04 · CAREER & TIPS</div><h2>진로 및 관리 팁</h2><p>배운 지식을 다양한 뷰티 분야로 연결해 보세요.</p></div>
+<div class="career">
+<div class="card"><div class="icon">🧖‍♀️</div><h3>피부관리사</h3><p>고객의 피부 상태를 살피고 피부관리 서비스를 제공하는 분야</p></div>
+<div class="card"><div class="icon">🏡</div><h3>피부관리샵 운영</h3><p>피부관리 서비스 기획부터 고객 관리와 매장 운영까지 담당하는 분야</p></div>
+<div class="card"><div class="icon">💄</div><h3>뷰티 관련 분야</h3><p>화장품·뷰티 브랜드 상담, 교육 및 서비스 분야로 진출할 수 있습니다.</p></div>
+</div>
+<div class="info-panel purple" style="margin-top:20px"><h3>꾸준한 피부관리 습관 만들기</h3><p>자신의 피부 상태를 관찰하고, 세안·보습·자외선 차단을 꾸준히 실천해 보세요. 제품을 많이 사용하는 것보다 피부에 맞는 기본 습관을 유지하는 것이 중요합니다.</p></div>
+</div></section>
+</main>
+<footer><strong>skin<span style="color:#e8a9c7">on</span>.</strong><p>나만의 피부관리 가이드</p><p>내 피부를 이해하는 작은 습관, Skin on</p></footer>
+<script>
+function checkSkin(){
+ const names={dry:"건성 피부",oily:"지성 피부",combo:"복합성 피부",normal:"중성 피부"};
+ const advice={dry:"보습을 충분히 하고 세안 후 당김이 심해지지 않는지 살펴보세요.",oily:"과도한 세안은 피하고 가벼운 보습과 자외선 차단을 꾸준히 해보세요.",combo:"부위별 상태를 살펴 T존과 볼에 맞춰 보습 정도를 조절해 보세요.",normal:"현재의 균형을 유지할 수 있도록 기본 관리 습관을 꾸준히 이어가세요."};
+ const counts={dry:0,oily:0,combo:0,normal:0};let total=0;
+ for(let i=1;i<=3;i++){const v=document.querySelector('input[name="q'+i+'"]:checked');if(v){counts[v.value]++;total++;}}
+ const box=document.getElementById('quizResult');box.style.display='block';
+ if(total<3){box.textContent='세 문항을 모두 선택하면 결과를 확인할 수 있어요.';return;}
+ const key=Object.keys(counts).sort((a,b)=>counts[b]-counts[a])[0];
+ box.textContent='나와 가장 가까운 유형은 '+names[key]+'입니다. '+advice[key]+' (간단 참고 결과)';
+}
+</script>
+</body></html>
